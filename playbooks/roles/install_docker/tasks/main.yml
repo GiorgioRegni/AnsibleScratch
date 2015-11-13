@@ -1,0 +1,5 @@
+- name: install docker
+  # NOTE: This will warn to use the get_url module, which requires
+  #       SNI support in the target's Python version (v2.7.9). CentOS 7
+  #       ships with 2.7.5.
+  shell: curl -sSL https://get.docker.com/ | sh

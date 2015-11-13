@@ -1,0 +1,8 @@
+- hosts: "{{ hostgroup }}"
+  roles:
+    # - package_update
+    # - install_docker
+  vars_prompt:
+    - name: "hostgroup"
+      default: "all"
+      private: false
