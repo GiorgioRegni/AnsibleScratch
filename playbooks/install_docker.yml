@@ -1,0 +1,8 @@
+- hosts: ubuntu
+  roles:
+    - { role: package_update, os: ubuntu }
+    - { role: install_docker, os: ubuntu }
+- hosts: centos
+  roles:
+    - { role: package_update, os: centos }
+    - { role: install_docker, os: centos }

@@ -1,0 +1,11 @@
+- name: update all apt packages
+  apt:
+    upgrade: dist
+    update_cache: yes
+  become: yes
+  when: os == "ubuntu"
+- name: update all yum packages
+  yum:
+    name: "*"
+    state: latest
+  when: os == "centos"

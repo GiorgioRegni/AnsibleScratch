@@ -1,0 +1,16 @@
+# NOTE: Normally, files are downloaded via the get_url module. However,
+#       Python > 2.7.9 is missing proper SNI support which creates problems
+#       with SSL. The current workaround is to use the shell module and call
+#       curl directly.
+#
+#       This is going to throw a warning, which can safely be ignored. The
+#       real fix is for targets to run Python 2.7.9 or later, which may take
+#       time for distributions to move to. See
+#       https://github.com/ansible/ansible/issues/12161 for more details.
+- name: install docker as admin
+  shell: curl -sSL https://get.docker.com/ | sh
+  when: os == "ubuntu"
+  become: yes
+- name: install docker as root
+  shell: curl -sSL https://get.docker.com/ | sh
+  when: os == "centos"
