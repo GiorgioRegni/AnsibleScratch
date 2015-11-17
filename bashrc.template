@@ -1,8 +1,0 @@
-# Run Ansible from source.
-source /home/you/your/checkout/ansible/hacking/env-setup -q
-
-# Set the path for the Ansible hosts file.
-export ANSIBLE_INVENTORY="$HOME/path/to/your/ansible_hosts"
-
-# Set the path for the Ansible config file.
-export ANSIBLE_CONFIG="$HOME/ansible.cfg"
