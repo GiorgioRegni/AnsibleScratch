@@ -3,9 +3,9 @@
     upgrade: dist
     update_cache: yes
   become: yes
-  when: os == "ubuntu"
+  when: base_os == "ubuntu14"
 - name: update all yum packages
   yum:
     name: "*"
     state: latest
-  when: os == "centos"
+  when: base_os == "cent7"

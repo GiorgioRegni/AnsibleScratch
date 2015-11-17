@@ -9,8 +9,8 @@
 #       https://github.com/ansible/ansible/issues/12161 for more details.
 - name: install docker as admin
   shell: curl -sSL https://get.docker.com/ | sh
-  when: os == "ubuntu"
+  when: base_os == "ubuntu14"
   become: yes
 - name: install docker as root
   shell: curl -sSL https://get.docker.com/ | sh
-  when: os == "centos"
+  when: base_os == "cent7"
