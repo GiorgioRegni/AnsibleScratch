@@ -10,7 +10,7 @@ SCP `setup.sh` to the home directory of the admin user (needs passwordless sudo)
 
 ### Manual
 
-**NOTE**: This is taken from the [Ansible source installation documentation](http://docs.ansible.com/ansible/intro_installation.html#running-from-source) and tested on Ubuntu 14.04. Refer back to the documentation if you run into issues.
+**NOTE**: This is taken from the [Ansible source installation documentation](http://docs.ansible.com/ansible/intro_installation.html#running-from-source). Refer back to the documentation if you run into issues.
 
 #### Ubuntu 14.04
 
@@ -50,13 +50,13 @@ $ git submodule update --init --recursive
 
 ### Verify Ansible is Installed Properly
 
-
 ```bash
 $ ansible localhost -m ping
 ```
 
 #### Expected Result:
->>```bash
+
+```bash
 your_remote_host | SUCCESS => {
     "changed": false,
     "ping": "pong"
