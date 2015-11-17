@@ -6,6 +6,8 @@
 
 ### Shell Script
 
+**NOTE**: The shell script supports Ubuntu Server 14.04 LTS and CentOS 7.
+
 SCP `setup.sh` to the home directory of the admin user (needs passwordless sudo) or the root user, then: `./setup.sh`.
 
 ### Manual
