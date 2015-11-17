@@ -62,3 +62,20 @@ your_remote_host | SUCCESS => {
     "ping": "pong"
 }
 ```
+
+## Ansible Hosts
+
+To use this project, you **must** write a host file for Ansible to use stored in the project's root directory (assuming Ansible was installed/setup using the Bash script.). This file is ignored by Git because it is environment-dependent, but here is an example:
+
+```bash
+[storage]
+node1 ansible_user=root   ansible_host=192.168.0.15 base_os=cent7
+node2 ansible_user=ubuntu ansible_host=192.168.0.13 base_os=ubuntu14
+```
+
+### The `base_os` Variable
+
+In order to support multiple operating systems, each host in the Ansile hosts file **must** have a value set for the base OS variable. Exaples:
+
+* Ubuntu Server 14.04 LTS: `ubuntu14`
+* CentOS 7: `cent7`
