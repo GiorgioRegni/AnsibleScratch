@@ -63,7 +63,7 @@ your_remote_host | SUCCESS => {
 }
 ```
 
-## Ansible Hosts
+## [Ansible Hosts](http://docs.ansible.com/ansible/intro_inventory.html)
 
 To use this project, you **must** write a host file for Ansible to use stored in the project's root directory (assuming Ansible was installed/setup using the Bash script.). This file is ignored by Git because it is environment-dependent, but here is an example:
 
