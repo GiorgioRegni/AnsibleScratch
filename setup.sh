@@ -13,6 +13,15 @@ function ansible_source {
   fi
 }
 
+function bash_config {
+  if [ `grep -q "profile" ~/.bashrc && echo $?` ]; then
+    echo "BASH ALREADY CONFIGURED..."
+  else
+    echo "CONFIGURING BASH..."
+    echo -e "source ~/.profile" >> ~/.bashrc
+  fi
+}
+
 function env_config {
   if [ `grep -q "hacking" ~/.profile && echo $?` ]; then
     echo "ENVIRONMENT ALREADY CONFIGURED..."
@@ -68,6 +77,17 @@ if [ `python -mplatform | grep Ubuntu-14.04` ]; then
   env_config
 elif [ `python -mplatform | grep centos-7` ]; then
   echo "RUNNING ON CENTOS 7..."
+  echo "ENABLING EPEL..."
+  rpm -iUvh http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
+  echo "VERIFYING YUM DEPENDENCIES..."
+  yum install git python-pip python-crypto -y
+  ssh_config
+  ansible_source
+  echo "VERIFYING PIP DEPENDENCIES..."
+  pip install paramiko PyYAML Jinja2 httplib2 six
+  project_source
+  env_config
+  bash_config
 fi
 
 echo '...DONE! PLEASE RELOAD PROFILE, "source ~/.profile".'
