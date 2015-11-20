@@ -1,0 +1,8 @@
+- name: logstash container
+  docker:
+    image: pblittle/docker-logstash/
+    sate: started
+    expose:
+      - 9200
+      - 9292
+  become: yes

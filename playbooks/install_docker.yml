@@ -1,4 +1,4 @@
-- hosts: storage
+- hosts: docker
   roles:
     - package_update
     - install_docker

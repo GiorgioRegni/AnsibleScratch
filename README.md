@@ -67,17 +67,31 @@ your_remote_host | SUCCESS => {
 
 ## [Ansible Hosts](http://docs.ansible.com/ansible/intro_inventory.html)
 
-To use this project, you **must** write a host file for Ansible to use stored in the project's root directory (assuming Ansible was installed/setup using the Bash script.). This file is ignored by Git because it is environment-dependent, but here is an example:
+To use this project, you **must** write a host file for Ansible to use stored in the project's root directory (assuming Ansible was installed/setup using the Bash script.). Note that hosts can be listed in more than one group, and that variables for a given host will be pulled from all groups. This file is ignored by Git because it is environment-dependent, but here is an example:
 
 ```bash
-[storage]
-node1 ansible_user=root   ansible_host=192.168.0.15 base_os=cent7
-node2 ansible_user=ubuntu ansible_host=192.168.0.13 base_os=ubuntu14
+[docker]
+ubuntu14     ansible_user=ubuntu ansible_host=192.168.0.13 base_os=ubuntu14
+centos7      ansible_user=root   ansible_host=192.168.0.15 base_os=cent7
+
+[logstash]
+ubuntu14     ansible_user=ubuntu ansible_host=192.168.0.13
+centos7      ansible_user=root   ansible_host=192.168.0.15
 ```
 
-### The `base_os` Variable
+### Host Groups
+
+#### `docker`
+
+These are the hosts that will be running Docker, which will probably be at least most hosts.
+
+#### The `base_os` Variable
 
 In order to support multiple operating systems, each host in the Ansile hosts file **must** have a value set for the base OS variable. Exaples:
 
 * Ubuntu Server 14.04 LTS: `ubuntu14`
 * CentOS 7: `cent7`
+
+#### `logstash`
+
+These are hosts running Docker that will also be running [Logstash](https://hub.docker.com/r/pblittle/docker-logstash/) containers.
