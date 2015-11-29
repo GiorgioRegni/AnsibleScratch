@@ -1,0 +1,25 @@
+- name: install pip dependencies as admin
+  apt:
+    name: python-setuptools
+    state: latest
+  become: yes
+  when: base_os == "ubuntu14"
+- name: install pip as admin
+  easy_install:
+    name: pip
+  become: yes
+  when: base_os == "ubuntu14"
+- name: add epel repo
+  yum:
+    name: http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
+    state: present
+  when: base_os == "cent7"
+- name: install pip dependencies as root
+  yum:
+    name: python-pip
+    state: latest
+  when: base_os == "cent7"
+- name: install docker-py
+  pip:
+    name: docker-py
+  become: yes

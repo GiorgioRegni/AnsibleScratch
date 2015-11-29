@@ -70,13 +70,9 @@ your_remote_host | SUCCESS => {
 To use this project, you **must** write a host file for Ansible to use stored in the project's root directory (assuming Ansible was installed/setup using the Bash script.). Note that hosts can be listed in more than one group, and that variables for a given host will be pulled from all groups. This file is ignored by Git because it is environment-dependent, but here is an example:
 
 ```bash
-[docker]
-ubuntu14     ansible_user=ubuntu ansible_host=192.168.0.13 base_os=ubuntu14
-centos7      ansible_user=root   ansible_host=192.168.0.15 base_os=cent7
-
-[logstash]
-ubuntu14     ansible_user=ubuntu ansible_host=192.168.0.13
-centos7      ansible_user=root   ansible_host=192.168.0.15
+[storage]
+node1 ansible_user=ubuntu ansible_host=192.168.0.13 base_os=ubuntu14
+node2 ansible_user=root   ansible_host=192.168.0.15 base_os=cent7
 ```
 
 ### Host Groups

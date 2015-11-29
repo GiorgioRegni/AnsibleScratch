@@ -1,4 +1,5 @@
-- hosts: docker
+- hosts: storage
   roles:
     - package_update
     - install_docker
+    - install_docker_py

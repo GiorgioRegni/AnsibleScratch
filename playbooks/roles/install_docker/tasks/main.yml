@@ -14,3 +14,6 @@
 - name: install docker as root
   shell: curl -sSL https://get.docker.com/ | sh
   when: base_os == "cent7"
+- name: start docker as root
+  shell: chkconfig docker on && systemctl start docker
+  when: base_os == "cent7"
