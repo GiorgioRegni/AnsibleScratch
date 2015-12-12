@@ -75,6 +75,8 @@ node1 ansible_user=ubuntu ansible_host=192.168.0.13 base_os=ubuntu14
 node2 ansible_user=root   ansible_host=192.168.0.15 base_os=cent7
 ```
 
+**NOTE**: The Ansible configuration specified by this project expects the inventory to be configured in `AnsibleScratch/ansible_hosts`.
+
 ### Host Groups
 
 #### `docker`
