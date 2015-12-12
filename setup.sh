@@ -46,4 +46,17 @@ elif [ `python -mplatform | grep centos-7` ]; then
 fi
 
 echo '...DONE!'
-echo 'To use Ansible, please configure your environment by running "source env_config.sh"'
+echo ''
+echo 'Next Steps:'
+echo '  * Configure your shell environment by running "source ~/AnsibleScratch/env_config.sh"'
+echo '  * Create an Ansible inventory file at ~/AnsibleScratch/ansible_hosts to suit your network environment.'
+echo ''
+echo '  Examples:'
+echo '    ansible_hosts file:'
+echo '      [storage]'
+echo '      node1 ansible_user=ubuntu ansible_host=192.168.0.13 base_os=ubuntu14'
+echo '      node2 ansible_user=root   ansible_host=192.168.0.15 base_os=cent7'
+echo '    To get all storage nodes to runlevel 0:'
+echo '      $ ansible-playbook ~/AnsibleScratch/playbooks/runlevel_0.yml'
+echo ''
+echo 'Refer to the AnsibleScratch README, as well as the Ansible documentation, for more details.'
