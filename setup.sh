@@ -6,10 +6,10 @@ PROJECT_OWNER="GiorgioRegni"
 function ansible_source {
   if [ -d ~/ansible ]; then
     echo "ANSIBLE ALREADY CLONED. UPDATING..."
-    cd ~/ansible && git pull --rebase && git submodule update --init --recursive && cd ~/
+    cd ~/.ansible && git pull --rebase && git submodule update --init --recursive && cd ~/
   else
     echo "CLONING ANSIBLE SOURCE..."
-    git clone https://github.com/ansible/ansible.git --recursive
+    git clone https://github.com/ansible/ansible.git --recursive ~/.ansible
   fi
 }
 
